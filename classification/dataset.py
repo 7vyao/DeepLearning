@@ -89,6 +89,7 @@ class ImagesDataset(Dataset):
         image_name = self.df.iloc[idx]['image_id'] + '.jpg'             # 索引CSV文件中的第idx行的image_id列，拼接处完整的imagename
         image_path = os.path.join(self.image_dir, image_name)           # 获取图像路径
 
+
         try:                                                            # 用PIL打开图片并转换成RGB
             image = Image.open(image_path).convert('RGB')
         except Exception as e:                                          # 如果读取失败就加载一张全黑图像
