@@ -382,13 +382,6 @@ def _plot_training_results(train_losses, val_losses, train_accuracies, val_accur
         train_f1s (list of float): 每个训练 epoch 的训练集宏平均 F1 分数。
         val_f1s (list of float): 每个训练 epoch 的验证集宏平均 F1 分数。
         save_path (str, optional): 保存图像的文件路径，默认 'training_results.png'。
-
-    功能:
-        1. 左上：训练和验证损失曲线。
-        2. 右上：训练和验证准确率曲线。
-        3. 左下：训练和验证宏平均 F1 分数曲线。
-        4. 右下：最近 10 个 epoch 的训练/验证准确率曲线，便于查看收敛情况。
-        5. 图像自动保存并显示。
     """
 
     fig, axes = plt.subplots(2, 2, figsize=(15, 10))
