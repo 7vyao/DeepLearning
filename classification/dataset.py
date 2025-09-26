@@ -56,11 +56,20 @@ class ImagesDataset(Dataset):
         skip_invalid (bool, optional): 是否跳过没有有效标签的样本。默认 False。
         is_training (bool, optional): 是否为训练模式，会影响默认 transform 的增强策略。默认 True。
 
-    Returns:
-        tuple:
-            image (torch.Tensor): 经过 transform 后的图像张量。
-            label_tensor (torch.Tensor): 标签张量，单标签为 long 类型，多标签为 float 类型。
-            image_name (str): 对应图片文件名，便于调试或后处理。
+    Attributes:
+        df (pandas.DataFrame): 存放图像 ID 和标签的表格。
+        image_dir (str): 图像文件所在目录。
+        multi_label (bool): 是否为多标签分类。
+        default_label (int): 默认标签值。
+        skip_invalid (bool): 是否跳过无效标签样本。
+        label_names (list of str): 标签列名列表。
+        transform (callable): 数据增强或预处理方法。
+
+    Example:
+        >>> dataset = ImagesDataset("train.csv", "images/")
+        >>> image, label, name = dataset[0]
+        >>> image.shape
+        torch.Size([3, 224, 224])
     """
 
     def __init__(self, csv_file, image_dir, transform=None, indices=None, image_size=224, label_names=None,
