@@ -123,7 +123,6 @@ class Trainer:
     通用模型训练器，封装训练、验证、指标记录、早停、最佳模型保存和可视化功能。
 
     Args:
-        Args:
         model (torch.nn.Module): 需要训练的模型。
         train_loader (DataLoader): 训练数据的 DataLoader。
         val_loader (DataLoader): 验证数据的 DataLoader。
